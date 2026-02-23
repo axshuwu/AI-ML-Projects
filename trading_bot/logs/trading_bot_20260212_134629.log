@@ -1,0 +1,8 @@
+2026-02-12 13:46:29 - root - INFO - Logging initialized. Log file: logs\trading_bot_20260212_134629.log
+2026-02-12 13:46:29 - root - INFO - Log level: INFO
+2026-02-12 13:46:29 - __main__ - INFO - Testing connection to Binance Futures Testnet...
+2026-02-12 13:46:29 - bot.client - INFO - Binance Futures Client initialized
+2026-02-12 13:46:29 - bot.client - INFO - Making GET request to /fapi/v1/ping
+2026-02-12 13:46:29 - bot.client - INFO - Request to /fapi/v1/ping successful
+2026-02-12 13:46:29 - bot.client - INFO - Connectivity test successful
+2026-02-12 13:46:29 - __main__ - INFO - Connectivity test passed

@@ -1,0 +1,49 @@
+2026-02-23 10:59:08 - root - INFO - Logging initialized. Log file: logs\trading_bot_20260223_105908.log
+2026-02-23 10:59:08 - root - INFO - Log level: INFO
+2026-02-23 10:59:08 - __main__ - INFO - ================================================================================
+2026-02-23 10:59:08 - __main__ - INFO - STARTING ORDER PLACEMENT
+2026-02-23 10:59:08 - __main__ - INFO - ================================================================================
+2026-02-23 10:59:08 - bot.client - INFO - Binance Futures Client initialized
+2026-02-23 10:59:08 - bot.orders - INFO - OrderManager initialized
+2026-02-23 10:59:08 - bot.client - INFO - Making GET request to /fapi/v1/ping
+2026-02-23 10:59:09 - bot.client - INFO - Request to /fapi/v1/ping successful
+2026-02-23 10:59:09 - bot.client - INFO - Connectivity test successful
+2026-02-23 10:59:09 - bot.orders - INFO - Initiating order placement: MARKET BUY 0.001 BTCUSDT
+2026-02-23 10:59:09 - bot.validators - INFO - Validating order parameters...
+2026-02-23 10:59:09 - bot.validators - INFO - All parameters validated successfully
+2026-02-23 10:59:09 - bot.orders - INFO - ============================================================
+2026-02-23 10:59:09 - bot.orders - INFO - ORDER REQUEST SUMMARY
+2026-02-23 10:59:09 - bot.orders - INFO - ============================================================
+2026-02-23 10:59:09 - bot.orders - INFO - Symbol:       BTCUSDT
+2026-02-23 10:59:09 - bot.orders - INFO - Side:         BUY
+2026-02-23 10:59:09 - bot.orders - INFO - Type:         MARKET
+2026-02-23 10:59:09 - bot.orders - INFO - Quantity:     0.001
+2026-02-23 10:59:09 - bot.orders - INFO - Price:        MARKET (best available)
+2026-02-23 10:59:09 - bot.orders - INFO - ============================================================
+2026-02-23 10:59:09 - bot.client - INFO - Placing MARKET BUY order for 0.001 BTCUSDT
+2026-02-23 10:59:09 - bot.client - INFO - Making POST request to /fapi/v1/order
+2026-02-23 10:59:09 - bot.client - ERROR - Network error: 400 Client Error: Bad Request for url: https://testnet.binancefuture.com/fapi/v1/order?symbol=BTCUSDT&side=BUY&type=MARKET&quantity=0.001&timestamp=1771824549036&signature=d1282e8eb7beeea186d0d460be8a491c0949af05bffb8d03382a4e7da7cd6987
+2026-02-23 10:59:09 - bot.orders - ERROR - Failed to place order: 400 Client Error: Bad Request for url: https://testnet.binancefuture.com/fapi/v1/order?symbol=BTCUSDT&side=BUY&type=MARKET&quantity=0.001&timestamp=1771824549036&signature=d1282e8eb7beeea186d0d460be8a491c0949af05bffb8d03382a4e7da7cd6987
+2026-02-23 10:59:09 - __main__ - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\O M E N\Desktop\trading_bot\cli.py", line 129, in order
+    response = order_manager.place_order(
+        symbol=symbol,
+    ...<3 lines>...
+        price=price
+    )
+  File "C:\Users\O M E N\Desktop\trading_bot\bot\orders.py", line 80, in place_order
+    response = self.client.place_order(
+        symbol=validated_symbol,
+    ...<3 lines>...
+        price=validated_price
+    )
+  File "C:\Users\O M E N\Desktop\trading_bot\bot\client.py", line 208, in place_order
+    return self._request('POST', '/fapi/v1/order', params=params)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\O M E N\Desktop\trading_bot\bot\client.py", line 106, in _request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\O M E N\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://testnet.binancefuture.com/fapi/v1/order?symbol=BTCUSDT&side=BUY&type=MARKET&quantity=0.001&timestamp=1771824549036&signature=d1282e8eb7beeea186d0d460be8a491c0949af05bffb8d03382a4e7da7cd6987
